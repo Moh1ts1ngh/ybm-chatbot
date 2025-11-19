@@ -1,0 +1,35 @@
+.env
+.env.*
+
+# Node / Bun
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun.lockb
+
+# Build output
+dist
+.turbo
+.cache
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.log
+
+# Coverage / test
+coverage
+*.lcov
+
+# Next.js
+.next
+out
+
+# Local tooling
+.vscode
+.idea
+

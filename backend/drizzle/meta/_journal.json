@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1763473559938,
+      "tag": "0000_broad_molecule_man",
+      "breakpoints": true
+    }
+  ]
+}
