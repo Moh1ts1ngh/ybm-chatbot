@@ -8,9 +8,6 @@ export const authConfig: NextAuthConfig = {
   session: {
     strategy: "jwt",
   },
-  pages: {
-    signIn: "/auth/sign-in",
-  },
   providers: [
     Google({
       clientId: serverEnv.GOOGLE_CLIENT_ID,
