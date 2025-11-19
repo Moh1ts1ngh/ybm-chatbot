@@ -5,10 +5,13 @@ import { fetchChatSessions } from "@/lib/backend/chat-logs";
 
 export default async function ChatLogsPage() {
   const session = await auth();
-  if (!session?.user?.tenantId) {
+  if (!session?.user) {
     redirect("/auth/sign-in");
   }
   const tenantId = session.user.tenantId;
+  if (!tenantId) {
+    redirect("/dashboard");
+  }
   const sessions = await fetchChatSessions(tenantId);
 
   return (

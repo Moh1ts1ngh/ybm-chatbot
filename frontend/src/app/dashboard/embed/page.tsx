@@ -10,10 +10,13 @@ import { EmbedManager } from "@/components/dashboard/embed-manager";
 
 export default async function EmbedPage() {
   const session = await auth();
-  if (!session?.user?.tenantId) {
+  if (!session?.user) {
     redirect("/auth/sign-in");
   }
   const tenantId = session.user.tenantId;
+  if (!tenantId) {
+    redirect("/dashboard");
+  }
 
   const embeds = await fetchEmbedsForTenant(tenantId);
 

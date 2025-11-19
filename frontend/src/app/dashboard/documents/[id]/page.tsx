@@ -11,10 +11,13 @@ export default async function DocumentDetailPage({
 }: DocumentDetailPageProps) {
   const { id } = await params;
   const session = await auth();
-  if (!session?.user?.tenantId) {
+  if (!session?.user) {
     redirect("/auth/sign-in");
   }
   const tenantId = session.user.tenantId;
+  if (!tenantId) {
+    redirect("/dashboard");
+  }
 
   const { document, chunks } = await fetchDocumentDetail(tenantId, id).catch(() => {
     notFound();

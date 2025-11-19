@@ -5,10 +5,13 @@ import { FileUploadCard } from "@/components/dashboard/file-upload-card";
 
 export default async function FilesPage() {
   const session = await auth();
-  if (!session?.user?.tenantId) {
+  if (!session?.user) {
     redirect("/auth/sign-in");
   }
   const tenantId = session.user.tenantId;
+  if (!tenantId) {
+    redirect("/dashboard");
+  }
   const documents = await fetchDocumentsForTenant(tenantId);
 
   return (
